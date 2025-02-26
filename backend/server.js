@@ -4,6 +4,8 @@ import 'dotenv/config'
 import mongoose from "mongoose";
 import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/coudinary.js";
+import userRouter from "./routes/userRoute.js";
+import productRouter from "./routes/productRoute.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,6 +23,10 @@ app.use(cors());
 
 connectDB()
 connectCloudinary()
+
+// api endpoints
+app.use('/api/user', userRouter);
+app.use('/api/product', productRouter)
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
