@@ -4,6 +4,7 @@ import LatestCollection from "../components/LatestCollection.jsx";
 import BestSeller from "../components/BestSeller.jsx";
 import OurPolicy from "../components/OurPolicy.jsx";
 import NewsLetterBox from "../components/NewsLetterBox.jsx";
+import Cube from "../components/Cube.jsx";
 
 const Home = () => {
     return (
