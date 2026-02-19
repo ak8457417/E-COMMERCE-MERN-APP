@@ -15,6 +15,14 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
+// main()
+//     .then(() => console.log('Connected to MongoDB'))
+//     .catch(err => console.log(err));
+//
+// async function main() {
+//     await mongoose.connect('mongodb+srv://ak8457417:22311167abhishek@cluster0.n7p36.mongodb.net/e-commerce');
+// }
+
 connectDB()
 connectCloudinary()
 
