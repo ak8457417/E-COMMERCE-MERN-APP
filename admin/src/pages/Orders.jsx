@@ -15,7 +15,7 @@ const Orders = ({token}) => {
 
         try {
 
-            const response = await axios.post("http://localhost:3000/api/order/list", {}, {headers: {token}})
+            const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/order/list`, {}, {headers: {token}})
             if(response.data.success) {
                 setOrders(response.data.orders);
             } else {
@@ -30,7 +30,7 @@ const Orders = ({token}) => {
     const statusHandler = async (e, orderId) => {
         try {
 
-            const response = await axios.post("http://localhost:3000/api/order/status", {orderId, status:e.target.value}, {headers:{token}})
+            const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/order/status`, {orderId, status:e.target.value}, {headers:{token}})
             if(response.data.success) {
                 await fetchAllOrders();
             }

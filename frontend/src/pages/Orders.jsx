@@ -16,7 +16,7 @@ const Orders = () => {
                 return null;
             }
 
-            const response = await axios.post('http://localhost:3000/api/order/userOrders', {}, {headers: {token}})
+            const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/order/userOrders`, {}, {headers: {token}})
 
             // console.log(response.data)
 

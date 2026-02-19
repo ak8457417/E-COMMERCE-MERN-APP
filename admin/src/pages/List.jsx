@@ -11,7 +11,7 @@ const List = ({token}) => {
 
     const fetchList = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/product/list')
+            const response = await axios.get(`${process.env.VITE_BACKEND_URL}/api/product/list`)
             if (response.data.success) {
                 setList(response.data.products)
             } else {
@@ -25,7 +25,7 @@ const List = ({token}) => {
 
     const removeProduct = async (id) => {
         try {
-            const response = await axios.post(`http://localhost:3000/api/product/remove`, {id}, {headers: {token}})
+            const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/product/remove`, {id}, {headers: {token}})
             if (response.data.success) {
                 toast.success(response.data.message)
                 await fetchList()
