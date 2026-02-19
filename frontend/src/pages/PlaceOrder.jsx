@@ -57,7 +57,7 @@ const PlaceOrder = () => {
 
             switch (method) {
                 case 'cod':
-                    const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/order/place`, orderData, {headers: {token}});
+                    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/order/place`, orderData, {headers: {token}});
                     console.log(response.data)
                     if (response.data.success) {
                         setCartItems({})
@@ -68,7 +68,7 @@ const PlaceOrder = () => {
                     break
 
                 case 'stripe':
-                    const responseStripe = await axios.post(`${process.env.VITE_BACKEND_URL}/api/order/stripe`, orderData, {headers: {token}})
+                    const responseStripe = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/order/stripe`, orderData, {headers: {token}})
                     if (responseStripe.data.success) {
                         const {session_url} = responseStripe.data
                         window.location.replace(session_url)
